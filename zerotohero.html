@@ -1,0 +1,26 @@
+<head>
+  <title>ZeroToHero</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Zero To Hero</h1>
+
+    {{> taskList}}
+  </div>
+</body>
+
+<template name="taskList">
+  <ul class="list-group">
+    {{#each tasks}}
+      {{> task}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="task">
+  <li class="list-group-item {{#if checked}}checked{{/if}}">
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    {{text}}
+  </li>
+</template>
