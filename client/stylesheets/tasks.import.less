@@ -1,0 +1,123 @@
+
+body {
+
+  .tasks {
+
+    background: #e9eaed;
+    min-height: 600px;
+    padding: 40px 0;
+
+    h3 {
+      margin-top: 0;
+    }
+
+    .avatar {
+      background: @white;
+      height: 116px;
+      width: 116px;
+    }
+
+    .progress {
+      background: @gray-light;
+      border-radius: @border-radius-small;
+      height: 30px;
+      margin: 0;
+      width: 140px;
+
+      .progress-bar {
+        background: @brand-success;
+        border-radius: 0;
+        font-weight: bold;
+        line-height: 30px;
+        overflow: hidden;
+        .box-shadow(none);
+      }
+    }
+
+    .row.list {
+
+      margin-top: 40px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+          background: @white;
+          border-radius: @border-radius-small;
+          font-size: 1.1em;
+          list-style: none;
+          line-height: 22px;
+          padding: 20px;
+          margin-bottom: 2px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          i.icon {
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            margin-right: 20px;
+            vertical-align: middle;
+
+            &.unchecked {
+              border: 1px solid @gray-lighter;
+              border-radius: 2px;
+              .transition(all .2s linear);
+
+              &:hover {
+                background: darken(@white, 2%);
+                border: 1px solid darken(@gray-lighter, 2%);
+                cursor: pointer;
+              }
+            }
+          }
+
+          &.next {
+            &::before {
+
+            }
+          }
+
+          &.completed {
+            background: @brand-success;
+            font-weight: bold;
+
+            .icon {
+              color: @brand-success;
+              font-size: 20px;
+              -webkit-text-stroke: 2px @white;
+//              text-shadow: 0 0 2px @white;
+            }
+
+          }
+
+          .btn {
+            font-size: 0.9em;
+            padding: 3px 22px;
+          }
+
+          .inner-panel {
+            @bg: #f9f9f9;
+            background: @bg;
+            border: 1px solid darken(@bg, 5%);
+            margin-top: 20px;
+            padding: 14px;
+
+            input.form-control {
+              font-size: 0.9em;
+              width: 80px;
+            }
+          }
+
+        }
+      }
+    }
+
+
+  }
+
+}
+

@@ -7,4 +7,7 @@ meteor-platform
 autopublish
 insecure
 mizzao:bootstrap-3
+nemo64:bootstrap
+less
+linto:fontawesome
 
