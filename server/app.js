@@ -23,4 +23,14 @@ Meteor.startup(function () {
       }
     };
   }
+
+  if (Teams.find().count() === 0) {
+    Teams.insert({name: 'Stripe', logo: 'logo'});
+  }
+
+  if (Tasks.find().count() === 0) {
+    _.each(CHECKLIST, function (task) {
+      Tasks.insert({text: task.text});
+    });
+  }
 });
