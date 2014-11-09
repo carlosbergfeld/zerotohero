@@ -1,11 +1,36 @@
 Meteor.startup(function () {
   if (typeof CHECKLIST === 'undefined') {
     CHECKLIST = {
-      'problemaDefinido': 'Problema definido',
-      'problemaValidado': 'Problema validado',
-      'solucaoDefinida': 'Solução definida',
-      'solucaoValidada': 'Solução validada',
-      'pitchPronto': 'Pitch pronto'
+      'problemaDefinido': {
+        text: 'Problema definido',
+        hasCounter: true
+      },
+      'problemaValidado': {
+        text: 'Problema validado',
+        hasCounter: true
+      },
+      'solucaoDefinida': {
+        text: 'Solução definida',
+        hasCounter: true
+      },
+      'solucaoValidada': {
+        text: 'Solução validada',
+        hasCounter: true
+      },
+      'pitchPronto': {
+        text: 'Pitch pronto',
+        hasCounter: true
+      }
     };
-  } 
+  }
+
+  if (Teams.find().count() === 0) {
+    Teams.insert({name: 'Stripe', logo: 'logo'});
+  }
+
+  if (Tasks.find().count() === 0) {
+    _.each(CHECKLIST, function (task) {
+      Tasks.insert({text: task.text});
+    });
+  }
 });
