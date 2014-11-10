@@ -30,6 +30,11 @@ Template.tasks.helpers({
   team: function () {
     return Teams.findOne({name: Meteor.user().username});
   },
+  progress: function () {
+    var completed = Tasks.find({team: Meteor.user().username, checked: true}).count();
+    var total = Tasks.find({team: Meteor.user().username}).count();
+    return (completed/total)*100;
+  },
   tasks: function () {
     return Tasks.find({team: Meteor.user().profile.team});
   }
