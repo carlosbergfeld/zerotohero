@@ -1,0 +1,43 @@
+<head>
+  <title>ZeroToHero</title>
+</head>
+
+<body>
+
+    <ul>{{> loginButtons}}</ul>
+    <h1>Zero To Hero</h1>
+
+    {{#if currentUser}}
+      {{#if userIsAdmin}}
+        {{> adminPage}}
+      {{else}}
+        {{> teamPage}}
+      {{/if}}
+    {{/if}}
+
+</body>
+
+<template name="adminPage">
+  <h3>Inserir time</h3>
+  <form>
+    <label for="teamName">Nome</label>
+    <input type="text" name="teamName">
+    <label for="teamEmail">email</label>
+    <input type="text" name="teamEmail">
+    <label for="teamEvent">Startup Weekend</label>
+    <input type="text" name="teamEvent">
+    <label for="teamPitch">Elevator Pitch</label>
+    <input type="text" name="teamPitch">
+    <button class="add-team">Create team</button>
+  </form>
+  
+  <ul class="list-group">
+    {{#each allTeams}}
+      <li class="list-group-item">{{name}}</li>
+    {{/each}}
+  </ul>
+</template>
+
+<template name="teamPage">
+  {{> tasks}}
+</template>

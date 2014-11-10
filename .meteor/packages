@@ -4,11 +4,10 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 mizzao:bootstrap-3
 underscore
 nemo64:bootstrap
 less
 linto:fontawesome
-
+ian:accounts-ui-bootstrap-3
+accounts-password
