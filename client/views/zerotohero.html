@@ -2,20 +2,28 @@
   <title>ZeroToHero</title>
 </head>
 
-<body>
+<template name="layout">
+  <body>
 
     <ul>{{> loginButtons}}</ul>
     <h1>Zero To Hero</h1>
 
-    {{#if currentUser}}
-      {{#if userIsAdmin}}
-        {{> adminPage}}
-      {{else}}
-        {{> teamPage}}
-      {{/if}}
-    {{/if}}
+    {{> yield}}
 
-</body>
+  </body>
+</template>
+
+<template name="landingPage">
+  <div class="container">
+    <h1>LANDING PAGE. TO BE CREATED.</h1>
+  </div>
+</template>
+
+<template name="cityPage">
+  <div id='dashboard'>
+  </div>
+  {{teamsPercentages.Vigilantes}}
+</template>
 
 <template name="adminPage">
   <h3>Inserir time</h3>
@@ -24,8 +32,8 @@
     <input type="text" name="teamName">
     <label for="teamEmail">email</label>
     <input type="text" name="teamEmail">
-    <label for="teamEvent">Startup Weekend</label>
-    <input type="text" name="teamEvent">
+    <label for="teamCity">Cidade</label>
+    <input type="text" name="teamCity">
     <label for="teamPitch">Elevator Pitch</label>
     <input type="text" name="teamPitch">
     <button class="add-team">Create team</button>

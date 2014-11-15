@@ -1,11 +1,13 @@
-Meteor.publish('teamTasks', function () {
-  var user;
-  if (this.userId) {
-    user = Meteor.users.findOne({_id: this.userId});
-    return Tasks.find({team: user.profile.team}, {sort: {position: 1}});
-  } else {
-    this.ready();
-  }
+Meteor.publish('teamTasks', function (teamCity, teamName) {
+  var team = Teams.findOne({
+    citySlug: teamCity,
+    nameSlug: teamName
+  });
+  return Tasks.find({team: team._id});
+});
+
+Meteor.publish('allTasks', function () {
+  return Tasks.find();
 });
 
 Meteor.publish('allTeams', function () {
